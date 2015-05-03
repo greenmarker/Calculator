@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 
+import java.util.TreeMap;
+
 /**
  * Created by Kamil on 2015-04-28.
  */
@@ -27,6 +29,15 @@ public class KeypadAdapter extends BaseAdapter {
             DECIMAL_SEP,
             DUMMY, ZERO, DUMMY, PLUS, CALCULATE
     };
+
+    private static final TreeMap<KeypadButtonCategory, Integer> BACKGROUNDS = new TreeMap<KeypadButtonCategory, Integer>(){{
+        put(KeypadButtonCategory.CLEAR, R.color.keypad_clear);
+        put(KeypadButtonCategory.MEMORYBUFFER, R.color.keypad_memorybuffer);
+        put(KeypadButtonCategory.NUMBER, R.color.keypad_number);
+        put(KeypadButtonCategory.OPERATOR, R.color.keypad_operator);
+        put(KeypadButtonCategory.RESULT, R.color.keypad_result);
+        put(KeypadButtonCategory.DUMMY, R.color.keypad_dummy);
+    }};
 
     public KeypadAdapter(Context c){
         mContext = c;
@@ -58,8 +69,14 @@ public class KeypadAdapter extends BaseAdapter {
         if (convertView == null){ // if it's not recycled, initialize some attributes
             btn = new Button(mContext);
             KeypadButton keypadButton = mButtons[position];
+
             if (keypadButton != DUMMY){
                 btn.setOnClickListener(mOnButtonClick);
+            }
+
+            Integer res = BACKGROUNDS.get(keypadButton.mCategory);
+            if (res!=null) {
+                btn.setBackgroundResource(res);
             }
 
             // Set KeypadButton enumeration as tag of the button so that we

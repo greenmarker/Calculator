@@ -72,7 +72,9 @@ public class MainActivity extends AppCompatActivity {
         userInputText.setText("0");
 
         mStackText = (TextView)findViewById(R.id.txtStack);
+        mStackText.setText("");
         memoryStatText = (TextView)findViewById(R.id.txtMemory);
+        memoryStatText.setText("");
     }
 
 
@@ -159,6 +161,7 @@ public class MainActivity extends AppCompatActivity {
             case PLUS:
             case MINUS:
             case MULTIPLY:
+            case SQRT:
                 if (resetInput){
                     mInputStack.pop();
                     mOperationStack.pop();
@@ -264,6 +267,12 @@ public class MainActivity extends AppCompatActivity {
             result = leftVal + rightVal;
         } else if (operator.equals(MINUS.getText())){
             result = leftVal - rightVal;
+        } else if (operator.equals(SQRT.getText())){
+            result = Math.sqrt(leftVal);
+        } else if (operator.equals(RECIPROC.getText())){
+            result = (1.0 / leftVal);
+        } else if (operator.equals(PERCENT.getText())){
+            result = Double.NaN;
         }
 
         String resultStr = doubleToString(result);
