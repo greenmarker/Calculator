@@ -48,4 +48,8 @@ public enum KeypadButton {
         mText = text;
         mCategory = category;
     }
+
+    public CharSequence getText() {
+        return mText;
+    }
 }
