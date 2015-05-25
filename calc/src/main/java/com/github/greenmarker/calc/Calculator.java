@@ -38,8 +38,6 @@ public class Calculator {
     private void updateState(KeypadButton keypadButton) {
         String text = keypadButton.getText().toString();
 
-        //String currentInput = userInputText.getText().toString();
-
         int currentInputLen = currentInput.length();
         String evalResult = null;
         double userInputValue = Double.NaN;
@@ -51,10 +49,8 @@ public class Calculator {
 
                 int endIndex = currentInputLen -1;
                 if (endIndex<1){
-                    //userInputText.setText("0");
                     currentInput = "0";
                 } else {
-                    //userInputText.setText(currentInput.subSequence(0, endIndex));
                     currentInput = currentInput.substring(0, endIndex);
                 }
                 break;
@@ -64,37 +60,31 @@ public class Calculator {
                 if (currentInputLen>0 && currentInput!="0"){
                     if (currentInput.charAt(0) == '-'){
                         // remove -
-                        //userInputText.setText(currentInput.subSequence(1, currentInputLen));
                         currentInput = currentInput.substring(1, currentInputLen);
                     } else {
                         // prepend -
-                        //userInputText.setText("-" + currentInput);
                         currentInput = "-" + currentInput;
                     }
                 }
                 break;
 
             case CE:
-                //userInputText.setText("0");
                 currentInput = "0";
                 break;
 
             case C:
-                //userInputText.setText("0");
                 currentInput = "0";
                 clearStacks();
                 break;
 
             case DECIMAL_SEP:
                 if (hasFinalResult || resetInput){
-                    //userInputText.setText("0" + mDecimalSeparator);
                     currentInput = "0" + mDecimalSeparator;
                     hasFinalResult = false;
                     resetInput = false;
                 } else if (currentInput.contains(mDecimalSeparator)){
                     return;
                 } else {
-                    //userInputText.append(mDecimalSeparator);
                     currentInput += mDecimalSeparator;
                 }
                 break;
@@ -121,7 +111,6 @@ public class Calculator {
                 dumpInputStack();
                 evalResult = evaluateResult(false);
                 if (evalResult != null){
-                    //userInputText.setText(evalResult);
                     currentInput = evalResult;
                 }
                 resetInput = true;
@@ -136,7 +125,6 @@ public class Calculator {
                 evalResult = evaluateResult(true);
                 if (evalResult != null){
                     clearStacks();
-                    //userInputText.setText(evalResult);
                     currentInput = evalResult;
                     resetInput = false;
                     hasFinalResult = true;
@@ -160,13 +148,11 @@ public class Calculator {
             default:
                 if (Character.isDigit(text.charAt(0))){
                     if (currentInput.equals("0") || resetInput || hasFinalResult){
-                        //userInputText.setText(text);
                         currentInput = text;
                         resetInput = false;
                         hasFinalResult = false;
 
                     } else {
-                        //userInputText.append(text);
                         currentInput += text;
                         resetInput = false;
                     }
@@ -211,6 +197,9 @@ public class Calculator {
         String tmp = null;
         if (!requestedByUser)
             tmp = mOperationStack.get(3);
+
+        left = left.replace(',', '.');
+        right = right.replace(',', '.');
 
         double leftVal = Double.parseDouble(left.toString());
         double rightVal = Double.parseDouble(right.toString());
