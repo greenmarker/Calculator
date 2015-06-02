@@ -1,4 +1,4 @@
-package com.github.greenmarker.calc;
+package com.github.greenmarker.calc.gui;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
+import com.github.greenmarker.calc.*;
 
 public class MainActivity extends AppCompatActivity {
 

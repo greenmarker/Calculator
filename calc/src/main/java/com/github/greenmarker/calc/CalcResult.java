@@ -6,7 +6,7 @@ package com.github.greenmarker.calc;
 public class CalcResult {
 
     // initial values, to be shown when calculator is started
-    String stack = "";
-    String userInput = "0";
-    String memory = "";
+    public String stack = "";
+    public String userInput = "0";
+    public String memory = "";
 }

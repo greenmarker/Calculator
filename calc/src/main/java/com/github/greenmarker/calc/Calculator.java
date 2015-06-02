@@ -2,10 +2,12 @@ package com.github.greenmarker.calc;
 
 import android.util.Log;
 
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
 import java.util.Stack;
 
 import static com.github.greenmarker.calc.KeypadButton.*;
-import static com.github.greenmarker.calc.MainActivity.*;
+import static com.github.greenmarker.calc.gui.MainActivity.*;
 
 /**
  * Created by Kamil on 2015-05-06.
@@ -21,7 +23,9 @@ public class Calculator {
 
     private Stack<String> mInputStack = new Stack<>();
     private Stack<String> mOperationStack = new Stack<>();
-    private CharSequence mDecimalSeparator = ",";
+
+    private NumberFormat numberFormat = NumberFormat.getNumberInstance();
+    private CharSequence mDecimalSeparator = "" + DecimalFormatSymbols.getInstance().getDecimalSeparator();
 
 
     public CalcResult processKeypadInput(KeypadButton keypadButton){
