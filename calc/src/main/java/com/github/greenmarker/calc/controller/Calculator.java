@@ -1,6 +1,7 @@
-package com.github.greenmarker.calc;
+package com.github.greenmarker.calc.controller;
 
 import android.util.Log;
+import com.github.greenmarker.calc.KeypadButton;
 
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;

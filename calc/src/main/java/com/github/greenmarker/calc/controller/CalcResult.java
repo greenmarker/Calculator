@@ -1,4 +1,4 @@
-package com.github.greenmarker.calc;
+package com.github.greenmarker.calc.controller;
 
 /**
  * Created by Kamil on 2015-05-10.

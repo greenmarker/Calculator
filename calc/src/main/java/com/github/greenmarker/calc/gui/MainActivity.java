@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 import com.github.greenmarker.calc.*;
+import com.github.greenmarker.calc.controller.CalcResult;
+import com.github.greenmarker.calc.controller.Calculator;
 
 public class MainActivity extends AppCompatActivity {
 
