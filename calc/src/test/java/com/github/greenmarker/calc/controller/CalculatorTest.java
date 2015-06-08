@@ -13,7 +13,7 @@ import static junit.framework.Assert.*;
 public class CalculatorTest {
 
     @Test
-    public void testAdding(){
+    public void add(){
         Calculator calc = new Calculator();
         CalcResult res;
 
@@ -31,9 +31,17 @@ public class CalculatorTest {
     }
 
     @Test
-    @Ignore
-    public void nok() {
-        assertTrue(false);
-    }
+    public void changeSign(){
+        Calculator calc = new Calculator();
+        CalcResult res;
 
+        res = calc.processKeypadInput(KeypadButton.ONE);
+        assertEquals("Wrong userInput after entering 1", "1", res.userInput);
+
+        res = calc.processKeypadInput(KeypadButton.SIGN);
+        assertEquals("Wrong userInput after first changing sign", "-1", res.userInput);
+
+        res = calc.processKeypadInput(KeypadButton.SIGN);
+        assertEquals("Wrong userInput after second changing sign", "1", res.userInput);
+    }
 }
