@@ -36,6 +36,14 @@ public enum KeypadButton {
     SQRT("SQRT", KeypadButtonCategory.OTHER),
     PERCENT("%", KeypadButtonCategory.OTHER),
 
+    SINUS("sin", KeypadButtonCategory.OTHER),
+    COSINUS("cos", KeypadButtonCategory.OTHER),
+    TANGENS("tg", KeypadButtonCategory.OTHER),
+    COTANGENS("ctg", KeypadButtonCategory.OTHER),
+
+    LN("ln", KeypadButtonCategory.OTHER), // ln - base 2
+    LD("ld", KeypadButtonCategory.OTHER), // ln - base 10
+
     CALCULATE("=", KeypadButtonCategory.RESULT),
 
     DUMMY("", KeypadButtonCategory.DUMMY)
