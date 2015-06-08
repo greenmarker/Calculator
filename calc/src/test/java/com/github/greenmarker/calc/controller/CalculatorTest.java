@@ -121,6 +121,22 @@ public class CalculatorTest {
     }
 
     // 7
+    public void backspace() {
+        Calculator calc = new Calculator();
+        CalcResult res;
+
+        res = calc.processKeypadInput(KeypadButton.SEVEN);
+        assertEquals("Wrong userInput after 1st operation", "7", res.userInput);
+
+        res = calc.processKeypadInput(KeypadButton.ZERO);
+        assertEquals("Wrong userInput after 2n operation", "70", res.userInput);
+
+        res = calc.processKeypadInput(KeypadButton.BACKSPACE);
+        assertEquals("Wrong userInput after 3rd operation", "7", res.userInput);
+
+        res = calc.processKeypadInput(KeypadButton.BACKSPACE);
+        assertEquals("Wrong userInput after 4th operation", "0", res.userInput);
+    }
 
     /**
      * 1/x
