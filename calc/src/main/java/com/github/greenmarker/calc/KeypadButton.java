@@ -24,6 +24,7 @@ public enum KeypadButton {
     SEVEN("7", KeypadButtonCategory.NUMBER),
     EIGHT("8", KeypadButtonCategory.NUMBER),
     NINE("9", KeypadButtonCategory.NUMBER),
+    PI_NUMBER("Pi", KeypadButtonCategory.NUMBER),
 
     PLUS(" + ", KeypadButtonCategory.OPERATOR),
     MINUS(" - ", KeypadButtonCategory.OPERATOR),

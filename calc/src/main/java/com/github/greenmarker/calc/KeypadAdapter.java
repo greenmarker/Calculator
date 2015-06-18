@@ -28,7 +28,7 @@ public class KeypadAdapter extends BaseAdapter {
             ONE, TWO, THREE, MINUS,
             DECIMAL_SEP,
             DUMMY, ZERO, DUMMY, PLUS, CALCULATE,
-            SINUS, COSINUS, TANGENS, COTANGENS
+            SINUS, COSINUS, TANGENS, COTANGENS, PI_NUMBER
     };
 
     private static final TreeMap<KeypadButtonCategory, Integer> BACKGROUNDS = new TreeMap<KeypadButtonCategory, Integer>(){{

@@ -179,6 +179,10 @@ public class Calculator {
                 currentInput = (1/Math.tan(userInputValue)) + "";
                 break;
 
+            case PI_NUMBER:
+                currentInput = "" + Math.PI;
+                break;
+
             default:
                 if (Character.isDigit(text.charAt(0))){
                     if (currentInput.equals("0") || resetInput || hasFinalResult){
