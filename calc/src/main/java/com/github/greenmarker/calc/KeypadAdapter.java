@@ -33,11 +33,12 @@ public class KeypadAdapter extends BaseAdapter {
 
     private static final TreeMap<KeypadButtonCategory, Integer> BACKGROUNDS = new TreeMap<KeypadButtonCategory, Integer>(){{
         put(KeypadButtonCategory.CLEAR, R.color.keypad_clear);
+        put(KeypadButtonCategory.DUMMY, R.color.keypad_dummy);
         put(KeypadButtonCategory.MEMORYBUFFER, R.color.keypad_memorybuffer);
         put(KeypadButtonCategory.NUMBER, R.color.keypad_number);
+        put(KeypadButtonCategory.OTHER, R.color.keypad_other);
         put(KeypadButtonCategory.OPERATOR, R.color.keypad_operator);
         put(KeypadButtonCategory.RESULT, R.color.keypad_result);
-        put(KeypadButtonCategory.DUMMY, R.color.keypad_dummy);
     }};
 
     public KeypadAdapter(Context c){
