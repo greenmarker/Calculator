@@ -15,7 +15,7 @@ import static com.github.greenmarker.calc.gui.MainActivity.*;
  */
 public class Calculator {
 
-    private String currentInput = "";
+    private String currentInput = "0";
     private String mStackText;
     private double memoryValue;
 
@@ -148,6 +148,35 @@ public class Calculator {
                 //displayMemoryStat();
 
                 hasFinalResult = false;
+                break;
+
+            case SINUS:
+                userInputValue = tryParseUserInput();
+                if (userInputValue==Double.NaN){
+                    userInputValue = 0;
+                }
+                currentInput = Math.sin(userInputValue) + "";
+                break;
+            case COSINUS:
+                userInputValue = tryParseUserInput();
+                if (userInputValue==Double.NaN){
+                    userInputValue = 0;
+                }
+                currentInput = Math.cos(userInputValue) + "";
+                break;
+            case TANGENS:
+                userInputValue = tryParseUserInput();
+                if (userInputValue==Double.NaN){
+                    userInputValue = 0;
+                }
+                currentInput = Math.tan(userInputValue) + "";
+                break;
+            case COTANGENS:
+                userInputValue = tryParseUserInput();
+                if (userInputValue==Double.NaN){
+                    userInputValue = 0;
+                }
+                currentInput = (1/Math.tan(userInputValue)) + "";
                 break;
 
             default:
