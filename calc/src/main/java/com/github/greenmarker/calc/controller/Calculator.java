@@ -98,7 +98,6 @@ public class Calculator {
             case PLUS:
             case MINUS:
             case MULTIPLY:
-            case SQRT:
                 if (resetInput){
                     mInputStack.pop();
                     mOperationStack.pop();
@@ -119,6 +118,17 @@ public class Calculator {
                     currentInput = evalResult;
                 }
                 resetInput = true;
+                break;
+            case SQRT:
+                userInputValue = tryParseUserInput();
+                if (userInputValue==Double.NaN){
+                    userInputValue = 0;
+                }
+                currentInput = Math.sqrt(userInputValue) + "";
+                hasFinalResult = true;
+
+                resetInput = true;
+                mInputStack.add(currentInput);
                 break;
 
             case CALCULATE:
@@ -156,6 +166,7 @@ public class Calculator {
                     userInputValue = 0;
                 }
                 currentInput = Math.sin(userInputValue) + "";
+                hasFinalResult = true;
                 break;
             case COSINUS:
                 userInputValue = tryParseUserInput();
@@ -163,6 +174,7 @@ public class Calculator {
                     userInputValue = 0;
                 }
                 currentInput = Math.cos(userInputValue) + "";
+                hasFinalResult = true;
                 break;
             case TANGENS:
                 userInputValue = tryParseUserInput();
@@ -170,6 +182,7 @@ public class Calculator {
                     userInputValue = 0;
                 }
                 currentInput = Math.tan(userInputValue) + "";
+                hasFinalResult = true;
                 break;
             case COTANGENS:
                 userInputValue = tryParseUserInput();
@@ -177,10 +190,20 @@ public class Calculator {
                     userInputValue = 0;
                 }
                 currentInput = (1/Math.tan(userInputValue)) + "";
+                hasFinalResult = true;
                 break;
 
             case PI_NUMBER:
                 currentInput = "" + Math.PI;
+                break;
+
+            case RECIPROC:
+                userInputValue = tryParseUserInput();
+                if (userInputValue==Double.NaN){
+                    userInputValue = 0;
+                }
+                currentInput = (1/userInputValue) + "";
+                hasFinalResult = true;
                 break;
 
             default:
